@@ -1,0 +1,27 @@
+<div class="container w-75 mx-auto">
+  <h2 class="text-danger fw-bolder my-3">Login</h2>
+  <form [formGroup]="loginform" (ngSubmit)="login(loginform)">
+    <!-- email -->
+    <label for="email">email</label>
+    <input type="text" id="email" class="form-control" formControlName="email">
+    <div class="errors" *ngIf="loginform.get('email')?.errors && loginform.get('email')?.touched">
+      <p class="text-danger p-0 mt-1" *ngIf="loginform.get('email')?.errors?.['required']">email is required</p>
+      <p class="text-danger p-0 mt-1" *ngIf="loginform.get('email')?.errors?.['email']">email not match</p>
+    </div>
+    <p class="text-danger p-0 mt-1">{{errorMessage}}</p>
+    <!-- password -->
+    <label for="password">password</label>
+    <input type="password" id="password" class="form-control" formControlName="password">
+    <div class="errors" *ngIf="loginform.get('password')?.errors && loginform.get('password')?.touched">
+      <p class="text-danger p-1 mt-1" *ngIf="loginform.get('password')?.errors?.['required']">password is required</p>
+      <p class="text-danger p-1 mt-1" *ngIf="loginform.get('password')?.errors?.['pattern']">password must start with Capital letter and from 6 to 15 number</p>
+    </div>
+    <!-- age -->
+
+    <br>
+    <!-- submit -->
+    <button type="submit" class="btn btn-danger" [disabled]="loginform.invalid">Login</button>
+  </form>
+</div>
+
+

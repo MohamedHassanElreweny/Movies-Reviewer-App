@@ -1,0 +1,20 @@
+h2{
+  font-weight: bolder;
+}
+.language{
+  background-color: yellow;
+  width: fit-content;
+  color: black;
+  padding: .4rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  border-radius: 4px;
+}
+img{
+  width: 100%;
+  transition: .5s all ease-in-out;
+}
+img:hover{
+  transform: scale(1.05);
+}

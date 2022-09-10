@@ -1,0 +1,51 @@
+<div class="container my-5">
+  <div class="row">
+    <div class="col-md-4 my-5">
+      <div class="brdr w-25"></div>
+      <h2 class="mt-3">Trending <br>Movies <br> to watch now</h2>
+      <p class="text-muted">Most watched movies by days</p>
+      <div class="brdr w-100"></div>
+    </div>
+    <div *ngFor="let item of movies" class="col-md-2 my-3">
+      <div class="show" routerLink="/details/{{item.id}}/movie">
+        <div class="evaluation"></div>
+        <img [src]="movie_posterUrl+item.poster_path" alt="" class="w-100">
+        <h2 class="fs-5 py-3">{{item.title}}</h2>
+      </div>
+    </div>
+    <div class="col-md-4 my-5">
+      <div class="brdr w-25"></div>
+      <h2 class="mt-3">Trending <br>TvShows <br> to watch now</h2>
+      <p class="text-muted">Most watched TvShows by days</p>
+      <div class="brdr w-100"></div>
+    </div>
+    <div *ngFor="let item of tvshows" class="col-md-2 my-3">
+      <div class="show" routerLink="/details/{{item.id}}/tv">
+        <img [src]="movie_posterUrl+item.poster_path" alt="" class="w-100">
+        <h2 class="fs-5 py-3">{{item.name}}</h2>
+      </div>
+    </div>
+    <div class="col-md-4 my-5">
+      <div class="brdr w-25"></div>
+      <h2 class="mt-3">Trending <br>People <br> to watch now</h2>
+      <p class="text-muted">Most watched people by days</p>
+      <div class="brdr w-100"></div>
+    </div>
+    <div *ngFor="let item of people"  class="col-md-2 my-3">
+      <div class="show" routerLink="/details/{{item.id}}/person">
+        <img [src]="movie_posterUrl+item.profile_path" alt="" class="w-100">
+        <h2 class="fs-5 py-3">{{item.name}}</h2>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- <ngx-spinner bdColor = "rgba(0, 0, 0, 0.8)" size = "medium" color = "#fff" type = "ball-scale-multiple" [fullScreen] = "true"><p style="color: white" ></p></ngx-spinner> -->
+<!-- <ngx-spinner bdColor = "rgba(0, 0, 0, 0.8)" size = "medium" color = "#fff" type = "ball-scale-multiple" [fullScreen] = "true"><p style="color: white" > Loading... </p></ngx-spinner> -->
+<!-- <ngx-spinner type="ball-scale-multiple"></ngx-spinner> -->
+<!-- <ngx-spinner
+  bdColor = "rgba(51, 51, 51, 0.8)"
+  size = "large"
+  color = "#934d4d"
+  [fullScreen]="true"
+  type = "ball-scale-multiple">
+</ngx-spinner> -->

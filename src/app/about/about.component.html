@@ -1,0 +1,31 @@
+<div class="container">
+  <div class="row mt-5">
+    <div class="image col-md-6 p-3">
+      <img [src]="currentShow.poster_path?movie_posterUrl+currentShow.poster_path:movie_posterUrl+currentShow.profile_path" alt="" class="w-100">
+    </div>
+    <div class="info col-md-6 p-3">
+      <h2 class="mb-5 text-center" *ngIf="currentShow.title;else nameortitle">{{currentShow.title}}</h2>
+      <ng-template #nameortitle>
+        <h2 class="mb-5 text-center ">{{currentShow.name}}</h2>
+      </ng-template>
+      <h4 *ngIf="currentShow.genres" class="d-flex flex-wrap"><span class="text-dark fw-bold p-2 m-1 bg-info rounded" *ngFor="let item of currentShow.genres">{{item.name}}</span></h4>
+      <p class="mt-4 language" *ngIf="currentShow.original_language">{{currentShow.original_language}}</p>
+      <p class="pt-2" *ngIf="currentShow.vote_average">Vote: {{currentShow.vote_average}}</p>
+      <p class="pt-2" *ngIf="currentShow.vote_count">Vote Count: {{currentShow.vote_count}}</p>
+      <p class="pt-2" *ngIf="currentShow.first_air_date;else date">First air date: {{currentShow.first_air_date}}</p>
+      <ng-template #date>
+        <p class="pt-2" *ngIf="currentShow.release_date">Release Date: {{currentShow.release_date}}</p>
+      </ng-template>
+      <p class="pt-2" *ngIf="currentShow.last_air_date">Last air date: {{currentShow.last_air_date}}</p>
+      <p class="pt-2" *ngIf="currentShow.number_of_seasons">Seasons: {{currentShow.number_of_seasons}}</p>
+      <p class="pt-2" *ngIf="currentShow.number_of_episodes">Episodes: {{currentShow.number_of_episodes}}</p>
+      <p class="pt-2" *ngIf="currentShow.birthday">Birthday: {{currentShow.birthday}}</p>
+      <p class="pt-2" *ngIf="currentShow.place_of_birth">Place of birth: {{currentShow.place_of_birth}}</p>
+      <p class="pt-2" *ngIf="currentShow.popularity">Popularity: {{currentShow.popularity}}</p>
+      <p class="pt-2 pe-5" *ngIf="currentShow.overview;else bio">{{currentShow.overview}}</p>
+      <ng-template  #bio>
+        <p class="pt-3 pe-5">{{currentShow.biography}}</p>
+      </ng-template>
+    </div>
+  </div>
+</div>

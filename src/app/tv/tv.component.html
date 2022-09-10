@@ -1,0 +1,36 @@
+<div class="container my-5">
+  <div class="row">
+    <div class="my-5 text-center">
+      <!-- <div class="brdr w-25 mx-auto"></div> -->
+      <h2 class="mt-3">Best TvShows</h2>
+      <!-- <p class="text-muted">Most watched movies by days</p> -->
+      <div class="brdr w-25 mx-auto"></div>
+    </div>
+  </div>
+  <div class="row">
+    <div *ngFor="let item of tvshows" class="col-md-3 my-3">
+      <div class="show" routerLink="/details/{{item.id}}/tv">
+        <div class="evaluation"></div>
+        <img [src]="movie_posterUrl+item.poster_path" alt="" class="w-100">
+        <h2 class="fs-5 py-3">{{item.name}}</h2>
+      </div>
+    </div>
+  </div>
+  <nav aria-label="Page navigation example">
+    <ul class="pagination text-center d-flex justify-content-center">
+      <li class="page-item">
+        <a class="page-link bg-transparent" (click)="prev()" aria-label="Previous">
+          <span aria-hidden="true">&laquo;</span>
+        </a>
+      </li>
+      <li *ngFor="let item of pages" class="page-item">
+        <a (click)="AllTvShows(item)" class="page-link bg-transparent">{{item}}</a>
+      </li>
+      <li class="page-item">
+        <a class="page-link bg-transparent" (click)="next()" aria-label="Next">
+          <span aria-hidden="true">&raquo;</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+</div>
